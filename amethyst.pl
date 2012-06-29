@@ -10,10 +10,10 @@ use Amethyst::RuntimeLibrary;
 my $src;
 my $file = shift @ARGV || "strint.am";
 {
-    open F, "<", $file;
-    local $/;
-    $src = <F>;
-    close F;
+  open F, "<", $file;
+  local $/;
+  $src = <F>;
+  close F;
 };
 
 #print $src;

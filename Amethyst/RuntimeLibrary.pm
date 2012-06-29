@@ -60,7 +60,7 @@ sub each
     my $self = CORE::shift;
     for(@$self)
     {
-	$Amethyst::BLOCK->($_);
+        $Amethyst::BLOCK->($_);
     }
     return $self;
 }
@@ -70,7 +70,7 @@ sub each_with_index
     my $self = CORE::shift;
     for(0..$#{$self})
     {
-	$Amethyst::BLOCK->($self->{$_}, $_);
+        $Amethyst::BLOCK->($self->{$_}, $_);
     }
     return $self;
 }
@@ -81,7 +81,7 @@ sub reject
     my @res;
     for(0..$#{$self})
     {
-	$Amethyst::BLOCK->($self->{$_}, $_);
+        $Amethyst::BLOCK->($self->{$_}, $_);
     }
     return \@res;
 }
@@ -126,9 +126,9 @@ sub op_add
 {
     my ($a, $b) = @_;
     if(is_integer($a)) { # Integer
-	$a + $b
+        $a + $b
     } else { # String
-	$a . $b
+        $a . $b
     }   
 }
 
@@ -137,9 +137,9 @@ sub method
     my $obj = shift;
     my $method = shift;
     if(ref $obj) {
-	return Symbol::qualify($method, ref$obj);
+        return Symbol::qualify($method, ref$obj);
     } else {
-	return ($Amethyst::SCALAR_METHOD::{$method})
+        return ($Amethyst::SCALAR_METHOD::{$method})
     }
 }
 
