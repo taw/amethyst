@@ -25,6 +25,15 @@ sub yield
     $Amethyst::BLOCK->(@_);
 }
 
+sub ref_get {
+  my ($a,$b) = @_;
+  if (ref $a eq 'ARRAY') {
+    $a->[$b];
+  } else {
+    $a->{$b};
+  }
+}
+
 package ARRAY;
 
 sub shift
@@ -70,7 +79,7 @@ sub each_with_index
     my $self = CORE::shift;
     for(0..$#{$self})
     {
-        $Amethyst::BLOCK->($self->{$_}, $_);
+        $Amethyst::BLOCK->($self->[$_], $_);
     }
     return $self;
 }
@@ -81,7 +90,7 @@ sub reject
     my @res;
     for(0..$#{$self})
     {
-        $Amethyst::BLOCK->($self->{$_}, $_);
+        $Amethyst::BLOCK->($self->[$_], $_);
     }
     return \@res;
 }
@@ -89,7 +98,7 @@ sub reject
 sub map
 {
     my $self = CORE::shift;
-    my @res = CORE::map { $Amethyst::BLOCK->($self->{$_}) } @$self;
+    my @res = CORE::map { $Amethyst::BLOCK->($self->[$_]) } @$self;
     return \@res;
 }
 

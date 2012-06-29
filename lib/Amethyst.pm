@@ -4,7 +4,7 @@ use Amethyst::Parser;
 use Amethyst::Compiler;
 use Amethyst::RuntimeLibrary;
 
-# Ruby's File#read, Perl6's chomp()
+# Ruby's File#read
 sub read_file {
   my $file = shift;
   open F, "<", $file;

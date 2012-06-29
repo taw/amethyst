@@ -68,8 +68,8 @@ our %KEYWORD;
 $KEYWORD{$_} = 1 for @KEYWORDS;
 
 our $grammar = q{
-    str: '"' /[^\\'\\"]+/  '"'                { $item[2] }
-    num: /\d+/                                { $item[1] }
+    str: /"[^\\'\\"]*"/                    { substr($item[1], 1, -1) }
+    num: /-?\d+/                              { $item[1] }
     id: /[a-zA-Z_][a-zA-Z0-9_]*[?!]?/        { if ($Amethyst::Parser::KEYWORD{$item[1]}) {undef} else {$item[1]}  }
     array: '[' list ']'                        { $item[2] }
 
@@ -217,7 +217,9 @@ our $grammar = q{
         | classstmt                        { $item[1] }
         | value                                { $item[1] }
 
-    stmt_brk: /[\\n;]+/                        { 1 }
+    comment: /#[^\n]+/
+
+    stmt_brk: comment(?) /[\\n;]+/            { 1 }
     stmt_wb: stmt stmt_brk                { $item[1] }
     stmts: stmt_brk(?)
            stmt_wb(s?)                        { $item[2] }

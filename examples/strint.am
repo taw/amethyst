@@ -13,4 +13,4 @@ print(zs, "\n")
 arr = [1,2,3]
 arr.each{|element| print(element,"\n")}
 
-print("Download from SVN repo at https://taw.pl.eu.org/svn/src/\n")
+print("Download from git repo at https://github.com/taw/amethyst\n")

@@ -126,6 +126,10 @@ sub rec_compile
                 } else {
                     return "call($m, undef, $a)";
                 }
+            } elsif ($node->{OP} eq '[]') {
+              $a = rec_compile($node->{A});
+              $b = rec_compile($node->{B});
+              return "ref_get($a, $b)";
             } else {
                 print "\tUNKNOWN OP $node->{OP} (", join(" ", sort keys %$node), ")\n";
             }
@@ -135,9 +139,9 @@ sub rec_compile
             } else {
                 return '$'.$node->{ID};
             }
-        } elsif ($node->{NUM}) {
+        } elsif (defined $node->{NUM}) {
             return $node->{NUM}+0;
-        } elsif ($node->{STR}) {
+        } elsif (defined $node->{STR}) {
             return '"'.$node->{STR}.'"';
         } elsif ($node->{ARR}) {
             my @values = map{rec_compile($_)} @{$node->{ARR}};

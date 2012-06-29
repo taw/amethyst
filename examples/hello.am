@@ -1,3 +1,5 @@
+# This file tests only the parser, the code is still too difficult for the compiler.
+
 x = "Hello, world"
 y = 5
 print(x, "\n")
