@@ -25,8 +25,15 @@ There are many problems with this approach, including:
   especially with this ad-hoc text-only approach to code generation.
 * Exceptions ... ouch
 
+
+usage
+=====
 To test, run:
 ./amethyst.pl examples/strint.am
+
+For parser or compiler steps only:
+./amethyst_parser.pl examples/strint.am
+./amethyst_compiler.pl examples/strint.am
 
 The examples/hello.am file only tests the parser, the code is too difficult for a compiler.
 
@@ -34,4 +41,13 @@ It's a one-liner quality code. There's no error detection/correction.
 On parse errors, the parser ignores the rest of the code, and doesn't even say something went wrong.
 It may randomly blow at you.
 
---Tomasz Wegrzanowski <Tomasz.Wegrzanowski@gmail.com>
+License
+=======
+
+Do whatever you want as long as you preserve attribution.
+(for longer legalese take any MIT/BSD license)
+
+Contact
+=======
+
+If you have any questions, contact me: Tomasz Wegrzanowski <Tomasz.Wegrzanowski@gmail.com>
