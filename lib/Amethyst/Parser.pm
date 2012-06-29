@@ -1,5 +1,3 @@
-#!/usr/bin/perl -w
-
 package Amethyst::Parser;
 
 use Parse::RecDescent;
@@ -239,4 +237,4 @@ sub parse
     return $parser->code($src);
 }
 
-1
+1;
