@@ -1,0 +1,8 @@
+# arr[x] = still doesn't work
+
+ary = [2,10,30]
+ary.push(ary[0] + ary[1] + ary[2])
+
+ary.each_with_index{|element, i|
+ print("* ", i, " => ", element, "\n")
+}

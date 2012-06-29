@@ -77,8 +77,7 @@ sub each
 sub each_with_index
 {
     my $self = CORE::shift;
-    for(0..$#{$self})
-    {
+    for(0..$#{$self}) {
         $Amethyst::BLOCK->($self->[$_], $_);
     }
     return $self;
@@ -88,8 +87,7 @@ sub reject
 {
     my $self = CORE::shift;
     my @res;
-    for(0..$#{$self})
-    {
+    for(0..$#{$self}) {
         $Amethyst::BLOCK->($self->[$_], $_);
     }
     return \@res;
@@ -98,8 +96,17 @@ sub reject
 sub map
 {
     my $self = CORE::shift;
-    my @res = CORE::map { $Amethyst::BLOCK->($self->[$_]) } @$self;
+    my @res;
+    for(0..$#{$self}) {
+        CORE::push @res, $Amethyst::BLOCK->($self->[$_]);
+    }
     return \@res;
+}
+
+sub join
+{
+  my ($self, $sep) = @_;
+  return CORE::join($sep, @$self);
 }
 
 # Just for tests

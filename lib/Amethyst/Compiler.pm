@@ -11,7 +11,7 @@ sub compile_block
         $lambda = join(",",map{'$'.$_}@lambda);
         $lambda = "my ($lambda)=\@_; "
     }
-    "sub{ $lambda$body }";
+    "sub{ $lambda do $body }";
 }
 
 sub rec_compile

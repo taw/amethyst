@@ -1,0 +1,8 @@
+hello = ["Hello", "world!"]
+
+puts(hello.join(", "))
+
+ary = [2,10,30]
+ary2 = ary.map{|x| x*3}
+
+puts(ary2.join(", "))
