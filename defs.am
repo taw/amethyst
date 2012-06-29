@@ -1,0 +1,17 @@
+def foo()
+    print("Foo called\n")
+end
+
+def bar
+    puts("Bar called\n")
+end
+
+def two_times()
+    yield()
+    yield()
+end
+
+two_times {
+    foo()
+    bar()
+}

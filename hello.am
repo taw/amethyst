@@ -1,0 +1,31 @@
+x = "Hello, world"
+y = 5
+print(x, "\n")
+z = [1,x,3,4,y]
+print(z[3], z[1])
+
+x = 4*5+6*7
+
+if x > y
+    c = 1
+elsif x < y
+    c = 3
+else
+    c = 2
+end
+
+print(x.abs + sum(x,y))
+
+def sum(x,y)
+    x+y
+end
+
+class String
+    def palindrome?
+	self == self.reverse
+    end
+end
+
+x.each{|y|
+    z = z + y.map{|i| i*2}.grep{|i| i>5}
+}

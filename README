@@ -1,0 +1,30 @@
+Amethyst provides Ruby-like syntax for Perl.
+The aim of the project is to let programmer use most CPAN modules,
+but with clean, functional and object-oriented Ruby way.
+
+There are many problems with this approach, including:
+* Perl does not differentiates between String and Integer.
+  We must hack a lot, as we don't want a MagickStringAndIntegerAtTheSameTime class
+  Maybe we should embed every scalar in Amethyst::String / Amethyst::Integer classes ?
+* List and scalar context - ouch.
+  As a rule, all variables in Amethyst are scalars,
+  so Array variables are merely references to Perl Arrays.
+  I think using *x here and there should provide most of the bridging needed.
+* Namespacing is completely different in Perl and Ruby.
+  Some technically-sound middle-ground must be found.
+* Implementing Lexical scoping will be difficult,
+  especially with this ad-hoc text-only approach to code generation.
+* Exceptions ... ouch
+
+However the code hacked in about 24 hours can already do a lot.
+
+To test, run:
+./amethyst.pl strint.am
+
+The hello.am only tests the parser, the code is too difficult for a compiler.
+
+It's a one-liner quality code. There's no error detection/correction.
+On parse errors, the parser ignores the rest of the code, and doesn't even say something went wrong.
+It may randomly blow at you.
+
+--Tomasz Wegrzanowski <taw [at] users.sf.net>

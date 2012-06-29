@@ -1,0 +1,16 @@
+xs = "15"
+xi = xs.to_i
+
+yi = 7
+ys = yi.to_s
+
+zi = xi + yi
+zs = xs + ys
+
+print(zi, "\n")
+print(zs, "\n")
+
+arr = [1,2,3]
+arr.each{|element| print(element,"\n")}
+
+print("Download from SVN repo at https://taw.pl.eu.org/svn/src/\n")
