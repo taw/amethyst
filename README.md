@@ -29,11 +29,11 @@ There are many problems with this approach, including:
 usage
 =====
 To test, run:
-./amethyst.pl examples/strint.am
+$ ./amethyst.pl examples/strint.am
 
 For parser or compiler steps only:
-./amethyst_parser.pl examples/strint.am
-./amethyst_compiler.pl examples/strint.am
+$ ./amethyst_parser.pl examples/strint.am
+$ ./amethyst_compiler.pl examples/strint.am
 
 The examples/hello.am file only tests the parser, the code is too difficult for a compiler.
 
