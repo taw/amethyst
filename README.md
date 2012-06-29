@@ -42,6 +42,12 @@ It's a one-liner quality code. There's no error detection/correction.
 On parse errors, the parser ignores the rest of the code, and doesn't even say something went wrong.
 It may randomly blow at you.
 
+Dependencies
+============
+
+amethyst_parser.pl needs Data::Dump module from CPAN to pretty-print ASTs.
+Amethyst itself doesn't have any external dependencies.
+
 License
 =======
 
