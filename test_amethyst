@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use Test::Simple tests => 4;
+use File::Slurp;
+
+for(qw(ary ary2 defs strint)) {
+  my $script_path  = "examples/$_.am";
+  my $out_path = "test/$_.out";
+  my $actual   = `./amethyst.pl $script_path`;
+  my $expected = read_file($out_path);
+  ok($actual eq $expected);
+}
