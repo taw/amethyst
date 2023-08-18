@@ -10,5 +10,6 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
+            - sudo apt install -y libfile-slurp-perl libparse-recdescent-perl
             - checkout
             - ./test_amethyst
